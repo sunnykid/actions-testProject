@@ -79,6 +79,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Download build artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: build-${{ github.run_number }}
+          path: build
+
       - name: Copy files to EC2
         uses: appleboy/scp-action@v0.1.4
         with:
