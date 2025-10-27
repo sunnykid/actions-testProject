@@ -102,4 +102,5 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
             cd /home/ubuntu/app
-            pm2 restart myapp || pm2 start npm --name "myapp" -- run dev
+            npm install
+            pm2 start node --name "myapp" -- src/app.js --cwd /home/ubuntu/app/build
